@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusuf Zulfiqar – Curriculum Vitae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #ffffff;
+            --off-white: #fafbfc;
+            --light-grey: #f1f5f9;
+            --mid-grey: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --text-muted: #94a3b8;
+            --accent-primary: #0f4c81;
+            --accent-secondary: #1d6eb5;
+            --accent-light: #e0f2fe;
+            --success: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            background: var(--light-grey);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 
+                0 1px 3px rgba(0,0,0,0.06),
+                0 8px 24px rgba(0,0,0,0.06);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--white);
+            padding: 2.5rem 3rem;
+            border-left: 5px solid var(--accent-primary);
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-primary) 0%, var(--mid-grey) 30%, var(--mid-grey) 100%);
+        }
+
+        .name {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-primary);
+        }
+
+        .contact-item a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 2.5rem 3rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title h2 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            white-space: nowrap;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--mid-grey) 0%, transparent 100%);
+        }
+
+        .statement {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-medium);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .skill-card {
+            background: var(--off-white);
+            border: 1px solid var(--mid-grey);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-secondary);
+            box-shadow: 0 2px 8px rgba(15, 76, 129, 0.08);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .education-card {
+            background: var(--off-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--mid-grey);
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .school-name {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .edu-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--mid-grey);
+        }
+
+        .grades-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .grades-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem 2rem;
+        }
+
+        .grade-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--mid-grey);
+        }
+
+        .grade-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .subject-name {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        .grade-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .grade-num {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-dark);
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .grade-num.top {
+            color: var(--accent-primary);
+        }
+
+        .improving {
+            font-size: 0.65rem;
+            color: var(--success);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .interest-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .interest-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            padding-top: 0.1rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .interest-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.35rem;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        .interest-desc {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.65;
+        }
+
+        .references-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .footer {
+            background: var(--off-white);
+            padding: 1.25rem 3rem;
+            border-top: 1px solid var(--mid-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .skill-card:hover,
+            .skill-card {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header,
+            .content {
+                padding: 1.5rem;
+            }
+
+            .footer {
+                padding: 1rem 1.5rem;
+            }
+
+            .name {
+                font-size: 1.85rem;
+            }
+
+            .contact-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grades-container {
+                grid-template-columns: 1fr;
+            }
+
+            .grade-item:nth-last-child(-n+2) {
+                border-bottom: 1px solid var(--mid-grey);
+            }
+
+            .grade-item:last-child {
+                border-bottom: none;
+            }
+
+            .interest-item {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="name">Yusuf Zulfiqar</h1>
+            <p class="tagline">Year 11 Student · King Edward's School, Birmingham</p>
+            <div class="contact-row">
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span>Birmingham, United Kingdom</span>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="M22 6l-10 7L2 6"/>
+                    </svg>
+                    <a href="mailto:yusuf.zulfiqar@outlook.com">yusuf.zulfiqar@outlook.com</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section>
+                <div class="section-title">
+                    <h2>Personal Statement</h2>
+                </div>
+                <p class="statement">
+                    Curious and disciplined Year 11 student at King Edward's School with a strong academic interest in Physics, Mathematics, and the structured analysis of complex systems. I am particularly interested in how theoretical ideas are tested under real-world constraints, whether in engineering, competitive environments, or decision-making frameworks. I am particularly interested in how large-scale infrastructure systems are designed and maintained, and how engineering decisions intersect with sustainability, regulation, and long-term public responsibility.
+                </p>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h2>Skills</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-name">Analytical Thinking</div>
+                        <div class="skill-desc">Structured problem-solving through Physics, Mathematics, and strategic games</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Critical Reasoning</div>
+                        <div class="skill-desc">Developed through reading and discussion of philosophy, politics, and ethics</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Digital Literacy</div>
+                        <div class="skill-desc">Research, written communication, document preparation, independent learning</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Teamwork & Communication</div>
+                        <div class="skill-desc">Developed through team sports and structured group activities</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Self-Discipline & Organisation</div>
+                        <div class="skill-desc">Balancing academic study with physical training and commitments</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Resilience & Adaptability</div>
+                        <div class="skill-desc">Responding constructively to challenge, feedback, and competition</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h2>Education</h2>
+                </div>
+                <div class="education-card">
+                    <div class="edu-header">
+                        <span class="school-name">King Edward's School, Birmingham</span>
+                        <span class="edu-date">January 2026</span>
+                    </div>
+                    <p class="grades-subtitle">IGCSE Mocks and Predicted Grades</p>
+                    <div class="grades-container">
+                        <div class="grade-item">
+                            <span class="subject-name">Physics</span>
+                            <div class="grade-badge">
+                                <span class="grade-num top">9</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Chemistry</span>
+                            <div class="grade-badge">
+                                <span class="grade-num top">9</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Biology</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">8</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Mathematics</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">7</span>
+                                <span class="improving">↑</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">English Language</span>
+                            <div class="grade-badge">
+                                <span class="grade-num top">9</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">English Literature</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">8</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Religious Studies</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">8</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Geography</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">7</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Latin</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">8</span>
+                            </div>
+                        </div>
+                        <div class="grade-item">
+                            <span class="subject-name">Greek</span>
+                            <div class="grade-badge">
+                                <span class="grade-num">6</span>
+                                <span class="improving">↑</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h2>Interests & Activities</h2>
+                </div>
+                <div class="interests-list">
+                    <div class="interest-item">
+                        <div class="interest-title">Formula 1</div>
+                        <p class="interest-desc">A focused interest driven by the way engineering, data analysis, operations, and strategy interact in high-pressure environments. Particularly interested in how small technical improvements compound over time, and how teams balance performance, reliability, and risk.</p>
+                    </div>
+                    <div class="interest-item">
+                        <div class="interest-title">Chess and Go</div>
+                        <p class="interest-desc">Regular engagement with strategic board games that develop long-term planning, pattern recognition, and decision-making under uncertainty, encouraging reflective thinking and structured evaluation of trade-offs.</p>
+                    </div>
+                    <div class="interest-item">
+                        <div class="interest-title">Philosophy & Politics</div>
+                        <p class="interest-desc">A sustained interest in reading and discussion, particularly around ethics, power, responsibility, and decision-making. This has encouraged careful reasoning, intellectual humility, and an appreciation of how ideas influence real-world systems.</p>
+                    </div>
+                    <div class="interest-item">
+                        <div class="interest-title">Combined Cadet Force</div>
+                        <p class="interest-desc">Participation in structured, hierarchical team environments, developing confidence, responsibility, discipline, and cooperation.</p>
+                    </div>
+                    <div class="interest-item">
+                        <div class="interest-title">Hockey</div>
+                        <p class="interest-desc">Regular participation in competitive team sport, developing teamwork, resilience, and the ability to adapt under changing conditions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h2>References</h2>
+                </div>
+                <p class="references-note">Available on request</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>Curriculum Vitae – Yusuf Zulfiqar</span>
+            <span>Page 1 of 1</span>
+        </footer>
+    </div>
+</body>
+</html>
